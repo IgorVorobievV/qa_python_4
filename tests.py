@@ -54,19 +54,13 @@ class TestBooksCollector:
 
         assert not collector.get_books_genre()['Гордость и предубеждение и зомби'] == 'Драма'
 
-    def test_get_books_with_specific_genre_specified_genre(self):
+    def test_get_book_genre_get_genre(self):
         collector = BooksCollector()
         
         collector.add_new_book('Гордость и предубеждение и зомби')
         collector.set_book_genre('Гордость и предубеждение и зомби', 'Фантастика')
-        
-        collector.add_new_book('Что делать, если ваш кот хочет вас убить')
-        collector.set_book_genre('Что делать, если ваш кот хочет вас убить', 'Фантастика')
-        
-        collector.add_new_book('Что делать, если ваш кот хочет вас убить')
-        collector.set_book_genre('Гаргантюа и Пантагрюэль', 'Комедии')
 
-        assert len(collector.get_books_with_specific_genre('Фантастика')) == 2
+        assert collector.get_book_genre('Гордость и предубеждение и зомби') == 'Фантастика'
 
     def test_get_books_with_specific_genre_get_books(self):
         collector = BooksCollector()
